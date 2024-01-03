@@ -2,19 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { NASA_URL, NASA_API_KEY } from '../../../env';
+import { NASA_URL, NASA_API_KEY } from '../../../../env';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ApiService {
+export class NasaService {
   private apiKey = NASA_API_KEY;
   private apiUrl = NASA_URL;
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpCliente: HttpClient) {}
 
   getAPOD(): Observable<any> {
-    const url = `${this.apiUrl}/planetary/apod?api_key=${this.apiKey}`;
-    return this.http.get(url);
+    const url = `${this.apiUrl}?api_key=${this.apiKey}`;
+    return this.httpCliente.get<any>(url);
   }
 }
