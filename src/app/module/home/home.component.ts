@@ -16,7 +16,6 @@ export class HomeComponent {
   ngOnInit(): void {
     this.nasaService.getAPOD().subscribe((data) => {
       this.apodData = data;
-      console.log(this.apodData);
     });
   }
 }
