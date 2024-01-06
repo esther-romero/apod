@@ -10,12 +10,15 @@ import { NasaService } from '../../core/services/nasa.service';
 })
 export class HomeComponent {
   apodData: any;
+  images: any[] = [];
+  selectedDate: string = '';
 
   constructor(private nasaService: NasaService) {}
 
   ngOnInit(): void {
     this.nasaService.getAPOD().subscribe((data) => {
       this.apodData = data;
+      console.log(this.apodData);
     });
   }
 }

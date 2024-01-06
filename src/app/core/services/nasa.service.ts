@@ -17,4 +17,9 @@ export class NasaService {
     const url = `${this.apiUrl}?api_key=${this.apiKey}`;
     return this.httpCliente.get<any>(url);
   }
+
+  getAPODByDate(date: string): Observable<any> {
+    const url = `${this.apiUrl}?api_key=${this.apiKey}&date=${date}`;
+    return this.httpCliente.get<any>(url);
+  }
 }

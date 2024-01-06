@@ -1,7 +1,23 @@
-@if(apodData){
-<h1>{{ apodData.title }}</h1>
+<div class="p-5 items-center justify-center font-serif m-auto max-w-[1400px]">
+  <h1 class="font-bold text-center text-2xl lg:text-3xl p-3 mb-3">
+    Astronomy Picture of the Day
+  </h1>
 
-<img [src]="apodData.url" alt="{{ apodData.title }}" />
+  @if(apodData){
+  <div class="rounded-lg shadow-lg lg:grid lg:grid-cols-2 items-center">
+    <img
+      class="w-full max-h-[560px]"
+      [src]="apodData.url"
+      alt="Astronomy Picture"
+    />
 
-<p>{{ apodData.explanation }}</p>
-}
+    <div class="px-6 py-4 items-center">
+      <div class="lg:font-bold text-xl mb-2">{{ apodData.title }}</div>
+
+      <p class="text-gray-400 text-base">{{ apodData.date }}</p>
+
+      <p class="text-gray-700 text-base">{{ apodData.explanation }}</p>
+    </div>
+  </div>
+  }
+</div>
