@@ -4,6 +4,11 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./module/home/home.component').then((m) => m.HomeComponent),
+      import('./modules/home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path: 'apod',
+    loadComponent: () =>
+      import('./modules/Apod/apod.component').then((m) => m.ApodComponent),
   },
 ];
