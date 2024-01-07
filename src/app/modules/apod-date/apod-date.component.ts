@@ -4,13 +4,14 @@ import { Router, RouterLink } from '@angular/router';
 import { NasaService } from '../../core/services/nasa.service';
 
 @Component({
-  selector: 'app-apod',
+  selector: 'app-apod-date',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './apod.component.html',
+  templateUrl: './apod-date.component.html',
+  styleUrl: './apod-date.component.css',
 })
-export class ApodComponent {
-  apodData: any;
+export class ApodDateComponent {
+  selectedDate: string = '';
 
   constructor(private nasaService: NasaService, private router: Router) {}
 
@@ -19,9 +20,10 @@ export class ApodComponent {
   }
 
   ngOnInit(): void {
-    this.nasaService.getAPOD().subscribe((data) => {
-      this.apodData = data;
-      console.log(this.apodData);
+    this.selectedDate = '2002-01-17T12:58:00Z';
+    this.nasaService.getAPODByDate(this.selectedDate).subscribe((data) => {
+      this.selectedDate = data;
+      console.log(this.selectedDate);
     });
   }
 }

@@ -9,6 +9,13 @@ export const routes: Routes = [
   {
     path: 'apod',
     loadComponent: () =>
-      import('./modules/Apod/apod.component').then((m) => m.ApodComponent),
+      import('./modules/apod/apod.component').then((m) => m.ApodComponent),
+  },
+  {
+    path: 'apod-date',
+    loadComponent: () =>
+      import('./modules/apod-date/apod-date.component').then(
+        (m) => m.ApodDateComponent
+      ),
   },
 ];

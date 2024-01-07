@@ -11,18 +11,14 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class HomeComponent {
   title = 'nasa-app';
-  public selectValue: FormControl;
-  public searchValue: FormControl;
 
-  constructor(private router: Router) {
-    this.selectValue = new FormControl('');
-    this.searchValue = new FormControl('');
-    this.router.navigate(this.router.url.split('/'));
-  }
+  constructor(private router: Router) {}
 
   navigate() {
-    if (this.selectValue.value !== '') {
-      this.router.navigate(['home', this.selectValue.value]);
-    } else this.router.navigate(['home']);
+    this.router.navigate(['/apod']);
+  }
+
+  navigateDate() {
+    this.router.navigate(['/apod-date']);
   }
 }
