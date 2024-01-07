@@ -7,7 +7,6 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [RouterOutlet, RouterLink, ReactiveFormsModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
 })
 export class HomeComponent {
   title = 'nasa-app';

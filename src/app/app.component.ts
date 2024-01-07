@@ -8,6 +8,4 @@ import { RouterOutlet } from '@angular/router';
   imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
 })
-export class AppComponent {
-  title = 'hb-nasa';
-}
+export class AppComponent {}
