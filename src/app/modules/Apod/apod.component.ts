@@ -1,27 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
-import { NasaService } from '../../core/services/nasa.service';
+import { InfoApodComponent } from '../components/info-apod/info-apod.component';
 
 @Component({
   selector: 'app-apod',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, InfoApodComponent],
   templateUrl: './apod.component.html',
 })
 export class ApodComponent {
-  apodData: any;
-
-  constructor(private nasaService: NasaService, private router: Router) {}
+  constructor(private router: Router) {}
 
   navigate() {
     this.router.navigate(['/']);
-  }
-
-  ngOnInit(): void {
-    this.nasaService.getAPOD().subscribe((data) => {
-      this.apodData = data;
-      console.log(this.apodData);
-    });
   }
 }

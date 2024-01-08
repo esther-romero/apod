@@ -23,31 +23,5 @@
     </button>
   </section>
 
-  <section>
-    <div
-      class="p-5 pt-0 items-center justify-center font-serif m-auto max-w-[1400px]"
-    >
-      <h1 class="font-bold text-center text-2xl lg:text-3xl p-3 pt-0 mb-3">
-        Astronomy Picture of the Day
-      </h1>
-
-      @if(apodData){
-      <div class="rounded-lg shadow-lg lg:grid lg:grid-cols-2 items-center">
-        <img
-          class="w-full max-h-[560px]"
-          [src]="apodData.url"
-          alt="Astronomy Picture"
-        />
-
-        <div class="px-6 py-4 items-center">
-          <div class="lg:font-bold text-xl mb-2">{{ apodData.title }}</div>
-
-          <p class="text-gray-400 text-base">{{ apodData.date }}</p>
-
-          <p class="text-gray-700 text-base">{{ apodData.explanation }}</p>
-        </div>
-      </div>
-      }
-    </div>
-  </section>
+  <app-info-apod />
 </main>
