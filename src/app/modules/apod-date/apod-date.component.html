@@ -24,10 +24,10 @@
   </section>
 
   <section
-    class="p-5 pt-0 items-center justify-center font-serif m-auto max-w-[1400px]"
+    class="p-7 pt-0 items-center justify-center font-serif m-auto max-w-[1400px] md:pb-0"
   >
-    <div class="md:grid md:grid-cols-4 md: gap-5">
-      <div class="my-5">
+    <div class="flex flex-col md:grid md:grid-cols-4 md:gap-5">
+      <div class="my-3">
         <label for="year" class="block text-sm font-medium text-gray-700"
           >Selecciona un año:</label
         >
@@ -43,7 +43,7 @@
         </select>
       </div>
 
-      <div class="my-5">
+      <div class="my-3">
         <label for="year" class="block text-sm font-medium text-gray-700"
           >Selecciona un mes:</label
         >
@@ -59,7 +59,7 @@
         </select>
       </div>
 
-      <div class="my-5">
+      <div class="my-3">
         <label for="year" class="block text-sm font-medium text-gray-700"
           >Selecciona un día:</label
         >
@@ -76,14 +76,16 @@
       </div>
 
       <button
-        class="my-4 md:mb-12 md:mt-[2.7rem] rounded-2xl bg-violet-300 px-4 py-[0.6rem] text-xs text-white"
+        class="mt-5 md:mb-12 md:mt-[2.3rem] rounded-2xl bg-violet-300 px-4 py-[0.6rem] text-xs text-white"
         type="button"
         (click)="onButtonClick()"
       >
         APOD by date
       </button>
     </div>
+  </section>
 
+  <section>
     @if(selectedDate){
     <app-info-apod [date]="selectedDate" />
     }
