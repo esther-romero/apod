@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 import { NasaService } from '../../core/services/nasa.service';
@@ -21,8 +21,12 @@ export class ApodDateComponent {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
   ];
-
-  constructor(private nasaService: NasaService, private router: Router) {
+  date: string = '';
+  constructor(
+    private nasaService: NasaService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) {
     this.selectedYear = 2024;
     this.selectedMonth = 1;
     this.selectedDay = 1;
@@ -56,9 +60,6 @@ export class ApodDateComponent {
   onButtonClick() {
     this.selectedDate = `${this.selectedYear}-${this.selectedMonth}-${this.selectedDay}`;
     console.log(this.selectedDate);
-  }
-
-  navigateToInfoApod() {
-    this.selectedDate = `${this.selectedYear}-${this.selectedMonth}-${this.selectedDay}`;
+    this.cdr.detectChanges();
   }
 }

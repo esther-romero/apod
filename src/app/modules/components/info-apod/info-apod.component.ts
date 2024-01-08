@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NasaService } from '../../../core/services/nasa.service';
@@ -29,5 +29,11 @@ export class InfoApodComponent {
         this.apodData = data;
       });
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.nasaService.getAPODByDate(this.date).subscribe((data) => {
+      this.apodData = data;
+    });
   }
 }

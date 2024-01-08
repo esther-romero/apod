@@ -23,61 +23,66 @@
     </button>
   </section>
 
-  <section class="p-5 font-serif">
-    <div class="my-5">
-      <label for="year" class="block text-sm font-medium text-gray-700"
-        >Selecciona un año:</label
-      >
-      <select
-        id="year"
-        name="year"
-        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-        (change)="onChangeYear($event)"
-      >
-        @for (year of years; track $index) {
-        <option value="{{ year }}">{{ year }}</option>
-        }
-      </select>
-    </div>
+  <section
+    class="p-5 pt-0 items-center justify-center font-serif m-auto max-w-[1400px]"
+  >
+    <div class="md:grid md:grid-cols-4 md: gap-5">
+      <div class="my-5">
+        <label for="year" class="block text-sm font-medium text-gray-700"
+          >Selecciona un año:</label
+        >
+        <select
+          id="year"
+          name="year"
+          class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          (change)="onChangeYear($event)"
+        >
+          @for (year of years; track $index) {
+          <option value="{{ year }}">{{ year }}</option>
+          }
+        </select>
+      </div>
 
-    <div class="my-5">
-      <label for="year" class="block text-sm font-medium text-gray-700"
-        >Selecciona un mes:</label
-      >
-      <select
-        id="month"
-        name="month"
-        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-        (change)="onChangeMonth($event)"
-      >
-        @for (month of months; track $index) {
-        <option value="{{ month }}">{{ month }}</option>
-        }
-      </select>
-    </div>
+      <div class="my-5">
+        <label for="year" class="block text-sm font-medium text-gray-700"
+          >Selecciona un mes:</label
+        >
+        <select
+          id="month"
+          name="month"
+          class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          (change)="onChangeMonth($event)"
+        >
+          @for (month of months; track $index) {
+          <option value="{{ month }}">{{ month }}</option>
+          }
+        </select>
+      </div>
 
-    <div class="my-5">
-      <label for="year" class="block text-sm font-medium text-gray-700"
-        >Selecciona un día:</label
+      <div class="my-5">
+        <label for="year" class="block text-sm font-medium text-gray-700"
+          >Selecciona un día:</label
+        >
+        <select
+          id="day"
+          name="day"
+          class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          (change)="onChangeDay($event)"
+        >
+          @for (day of days; track $index) {
+          <option value="{{ day }}">{{ day }}</option>
+          }
+        </select>
+      </div>
+
+      <button
+        class="my-4 md:mb-12 md:mt-[2.7rem] rounded-2xl bg-violet-300 px-4 py-[0.6rem] text-xs text-white"
+        type="button"
+        (click)="onButtonClick()"
       >
-      <select
-        id="day"
-        name="day"
-        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-        (change)="onChangeDay($event)"
-      >
-        @for (day of days; track $index) {
-        <option value="{{ day }}">{{ day }}</option>
-        }
-      </select>
+        APOD by date
+      </button>
     </div>
-    <button
-      class="my-4 rounded-2xl bg-violet-300 px-4 py-2 text-xs text-white"
-      type="button"
-      (click)="onButtonClick()"
-    >
-      APOD by date
-    </button>
 
     @if(selectedDate){
     <app-info-apod [date]="selectedDate" />
